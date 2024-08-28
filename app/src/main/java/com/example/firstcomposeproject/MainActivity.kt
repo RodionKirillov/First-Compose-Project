@@ -19,13 +19,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-                    Greeting(
-                        name = "Android",
-                    )
+            Greeting(name = "Android")
+            UserInfo(userName = "Родион", userAge = 25)
 
 
         }
     }
+}
+
+@Composable
+fun UserInfo(userName: String, userAge: Int) {
+    Text(text = "Привет $userName, тебе $userAge лет")
 }
 
 @Composable
