@@ -59,12 +59,13 @@ fun InstagramProfileCard() {
         ) {
             Image(
                 modifier = Modifier
+                    .size(60.dp)
                     .clip(CircleShape)
-                    .size(50.dp)
-                    .background(color = Color.Gray),
+                    .background(color = Color.White)
+                    .padding(8.dp),
                 painter = painterResource(id = R.drawable.ic_basketball),
                 contentDescription = "",
-                )
+            )
             UserStatistics(title = "Posts", value = "6,950")
             UserStatistics(title = "Followers", value = "436M")
             UserStatistics(title = "Following", value = "76")
