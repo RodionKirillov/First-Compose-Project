@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -50,25 +52,54 @@ fun InstagramProfileCard() {
             color = MaterialTheme.colorScheme.onBackground
         )
     ) {
-        Row(
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
+                .padding(16.dp)
         ) {
-            Image(
+            Row(
                 modifier = Modifier
-                    .size(60.dp)
-                    .clip(CircleShape)
-                    .background(color = Color.White)
-                    .padding(8.dp),
-                painter = painterResource(id = R.drawable.ic_basketball),
-                contentDescription = "",
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    modifier = Modifier
+                        .size(60.dp)
+                        .clip(CircleShape)
+                        .background(color = Color.White)
+                        .padding(8.dp),
+                    painter = painterResource(id = R.drawable.ic_basketball),
+                    contentDescription = "",
+                )
+                UserStatistics(title = "Posts", value = "6,950")
+                UserStatistics(title = "Followers", value = "436M")
+                UserStatistics(title = "Following", value = "76")
+            }
+
+            Text(
+                modifier = Modifier.padding(
+                    top = 8.dp
+                ),
+                text = "INSTAGRAM",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
             )
-            UserStatistics(title = "Posts", value = "6,950")
-            UserStatistics(title = "Followers", value = "436M")
-            UserStatistics(title = "Following", value = "76")
+            Text(
+                text = "#YoursToMake",
+                fontSize = 16.sp,
+            )
+            Text(
+                text = "https://www.instagram.com/facebook/",
+                fontSize = 16.sp,
+            )
+            Button(
+                onClick = {},
+            ) {
+                Text(
+                    text = "Follow",
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }
