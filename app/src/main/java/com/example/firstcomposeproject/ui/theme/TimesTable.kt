@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.firstcomposeproject.backgroundColor
 
 @Preview
 @Composable
@@ -44,5 +43,13 @@ fun TimesTable() {
                 }
             }
         }
+    }
+}
+
+private fun backgroundColor(column: Int, row: Int): Color {
+    return if ((column + row) % 2 == 0) {
+        Color.Yellow
+    } else {
+        Color.White
     }
 }
