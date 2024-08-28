@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-
+            Greeting(name = "Android")
             UserInfo(userName = "Родион", userAge = 25)
 
 
