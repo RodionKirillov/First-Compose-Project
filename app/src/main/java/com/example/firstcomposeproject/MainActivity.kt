@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -19,7 +20,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 
-            Greeting(name = "Android")
             UserInfo(userName = "Родион", userAge = 25)
 
 
@@ -27,14 +27,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Preview
 @Composable
-fun UserInfo(userName: String, userAge: Int) {
-    Text(text = "Привет $userName, тебе $userAge лет")
+fun Greeting() {
+    UserInfo(userName = "Родион", userAge = 25)
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(
-        text = "Hello $name!",
-    )
+fun UserInfo(userName: String, userAge: Int) {
+    Column {
+        repeat(10) {
+            Text(text = "Привет $userName, тебе $userAge лет")
+        }
+    }
 }
