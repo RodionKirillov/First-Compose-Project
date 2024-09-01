@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    // LiveData -> ObserveAsState()
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.8")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
