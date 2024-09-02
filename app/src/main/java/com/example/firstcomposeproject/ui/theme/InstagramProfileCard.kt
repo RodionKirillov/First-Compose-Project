@@ -31,15 +31,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.firstcomposeproject.InstagramModel
 import com.example.firstcomposeproject.MainViewModel
 import com.example.firstcomposeproject.R
 
 @Composable
 fun InstagramProfileCard(
-    viewModel: MainViewModel
+    model: InstagramModel,
+    onFollowedButtonClickListener: (InstagramModel) -> Unit
 ) {
-    val isFollowed: State<Boolean> = viewModel.isFollowing.observeAsState(false)
-
     Card(
         modifier = Modifier
             .padding(8.dp),
@@ -83,20 +83,20 @@ fun InstagramProfileCard(
                 modifier = Modifier.padding(
                     top = 8.dp
                 ),
-                text = "INSTAGRAM",
+                text = "INSTAGRAM ${model.id}",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "#YoursToMake",
+                text = "#${model.title}",
                 fontSize = 16.sp,
             )
             Text(
                 text = "https://www.instagram.com/facebook/",
                 fontSize = 16.sp,
             )
-            FollowButton(isFollowed = isFollowed) {
-                viewModel.changeFollowingStatus()
+            FollowButton(isFollowed = model.isFollowed) {
+                onFollowedButtonClickListener(model)
             }
         }
     }
@@ -104,20 +104,20 @@ fun InstagramProfileCard(
 
 @Composable
 private fun FollowButton(
-    isFollowed: State<Boolean>,
+    isFollowed: Boolean,
     clickListener: () -> Unit
 ) {
     Button(
         onClick = { clickListener() },
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isFollowed.value) {
+            containerColor = if (isFollowed) {
                 MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
             } else {
                 MaterialTheme.colorScheme.primary
             }
         )
     ) {
-        val text = if (isFollowed.value) "Unfollow" else "Follow"
+        val text = if (isFollowed) "Unfollow" else "Follow"
         Text(
             text = text,
             fontWeight = FontWeight.Bold
