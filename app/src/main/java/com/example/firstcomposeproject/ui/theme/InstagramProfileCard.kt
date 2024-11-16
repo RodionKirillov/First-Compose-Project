@@ -3,6 +3,7 @@ package com.example.firstcomposeproject.ui.theme
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -59,18 +60,15 @@ fun InstagramProfileCard() {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Box(
-                modifier = Modifier.size(70.dp)
-            ) {
-                Image(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clip(CircleShape)
-                        .background(color = Color.White),
-                    painter = painterResource(id = R.drawable.ic_basketball),
-                    contentDescription = null
-                )
-            }
+            Image(
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(CircleShape)
+                    .background(color = Color.White)
+                    .padding(8.dp),
+                painter = painterResource(id = R.drawable.ic_basketball),
+                contentDescription = null,
+            )
             UserStatistics(title = "Post", value = "99")
             UserStatistics(title = "Followers", value = "33M")
             UserStatistics(title = "Following", value = "76")
