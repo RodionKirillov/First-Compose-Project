@@ -13,13 +13,19 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun InstagramProfileCard() {
@@ -27,7 +33,8 @@ fun InstagramProfileCard() {
         modifier = Modifier
             .padding(8.dp),
         colors = CardDefaults.cardColors(
-            contentColor = MaterialTheme.colorScheme.background,
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onBackground
         ),
         shape = RoundedCornerShape(
             topStart = 4.dp,
@@ -53,36 +60,32 @@ fun InstagramProfileCard() {
             ) {
 
             }
-            TwoBoxes()
-            TwoBoxes()
-            TwoBoxes()
+            UserStatistics(title = "Post", value = "99")
+            UserStatistics(title = "Followers", value = "33M")
+            UserStatistics(title = "Following", value = "76")
         }
     }
 }
 
 @Composable
-private fun TwoBoxes() {
+private fun UserStatistics(
+    title: String,
+    value: String
+) {
     Column(
-        modifier = Modifier
-            .height(100.dp)
-            .background(color = Color.Green),
+        modifier = Modifier.height(100.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
+        verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        Box(
-            modifier = Modifier
-                .size(25.dp)
-                .background(color = Color.Blue)
-        ) {
-
-        }
-        Box(
-            modifier = Modifier
-                .size(25.dp)
-                .background(color = Color.Red)
-        ) {
-
-        }
+        Text(
+            text = value,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Light
+        )
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold
+        )
     }
 }
 
