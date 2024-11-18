@@ -122,7 +122,7 @@ private fun UserStatistics(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewCardLight() {
     FirstComposeProjectTheme(
@@ -132,7 +132,7 @@ fun PreviewCardLight() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewCardDark() {
     FirstComposeProjectTheme(
